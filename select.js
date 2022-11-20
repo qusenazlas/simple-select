@@ -11,19 +11,21 @@ function toggleDropdown(event) {
   }
 }
 
+function changeCheckbox(element, checked) {
+  checked
+    ? element?.setAttribute("checked", "true")
+    : element.removeAttribute("checked");
+}
+
 function addOrRemove(list, value, element, checkboxMode) {
   if (list.has(value)) {
     list.delete(value);
     element.removeAttribute("data-selected");
-    if (checkboxMode) {
-      element.children[0].removeAttribute("checked");
-    }
+    checkboxMode && changeCheckbox(element.children[0], false);
   } else {
     list.add(value);
     element.setAttribute("data-selected", "true");
-    if (checkboxMode) {
-      element.children[0].setAttribute("checked", "true");
-    }
+    checkboxMode && changeCheckbox(element.children[0], true);
   }
 }
 
@@ -39,9 +41,7 @@ function deSelectAll(context) {
   selected[context]?.clear();
   allOptions.forEach((item) => {
     item.removeAttribute("data-selected");
-    if (getIsCheckboxMode(context)) {
-      item.children[0].removeAttribute("checked");
-    }
+    getIsCheckboxMode(context) && changeCheckbox(item.children[0], false);
   });
 }
 
@@ -62,9 +62,7 @@ function selectAll(context, selectAllElement) {
       }
     }
     element.setAttribute("data-selected", "true");
-    if (getIsCheckboxMode(context)) {
-      element.children[0].setAttribute("checked", "true");
-    }
+    getIsCheckboxMode(context) && changeCheckbox(element.children[0], true);
   });
 }
 
@@ -75,9 +73,7 @@ function shouldUnCheckSelectAll(context, value) {
   const isCheck = selectAll.getAttribute("data-selected");
   if (isCheck === "true" && !selected[context].has(value)) {
     selectAll.removeAttribute("data-selected");
-    if (getIsCheckboxMode(context)) {
-      selectAll.children[0].removeAttribute("checked");
-    }
+    getIsCheckboxMode(context) && changeCheckbox(selectAll.children[0], false);
   }
 }
 
@@ -95,9 +91,7 @@ function onOptionSelect(event) {
       shouldUnCheckSelectAll(context, element);
     } else {
       selected[context] = new Set().add(value);
-      if (isCheckboxMode) {
-        element.children[0].setAttribute("checked", "true");
-      }
+      isCheckboxMode && changeCheckbox(element.children[0], true);
     }
   }
 
