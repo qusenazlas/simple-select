@@ -118,24 +118,24 @@
 
 ## Attributes and functions
 
-    ** data-checkbox and data-dropdown please select on of them don't use together. **
+** data-checkbox and data-dropdown please select on of them don't use together. **
 
-    | attributes    | value         | use for                                                 |
-    | ------------- | ------------- | ------------------------------------------------------- |
-    | data-toggler  | string        | to define which element is toggle dropdown button       |
-    | data-context  | string        | to define a group of data                               |
-    | data-dropdown | boolean       | to define which element is a dropdown                   |
-    | data-member   | string        | to define a option is a member in a group               |
-    | data-value    | string        | to define a option value                                |
-    | data-checkbox | boolean       | true to use checkbox mode                               |
-    | checkbox      | boolean       | to define a option has checkbox inside                  |
-    | data-selectall| boolean       | to define select all option (you don't need to          |
-    |               |               | put data-value along with this attr)                    |
+| attributes     | value   | use for                                           |
+| -------------- | ------- | ------------------------------------------------- |
+| data-toggler   | string  | to define which element is toggle dropdown button |
+| data-context   | string  | to define a group of data                         |
+| data-dropdown  | boolean | to define which element is a dropdown             |
+| data-member    | string  | to define a option is a member in a group         |
+| data-value     | string  | to define a option value                          |
+| data-checkbox  | boolean | true to use checkbox mode                         |
+| checkbox       | boolean | to define a option has checkbox inside            |
+| data-selectall | boolean | to define select all option (you don't need to    |
+|                |         | put data-value along with this attr)              |
 
-    | functions     | arguments     | use for                                                 |
-    | ------------- | ------------- | ------------------------------------------------------- |
-    | onOptionSelect| (event)       | use for select data when you onclick a option           |
-    | getSelected   | ()            | to get all selected options                             |
+| functions      | arguments | use for                                       |
+| -------------- | --------- | --------------------------------------------- |
+| onOptionSelect | (event)   | use for select data when you onclick a option |
+| getSelected    | ()        | to get all selected options                   |
 
 | Left columns | Right columns |
 | ------------ | :-----------: |
