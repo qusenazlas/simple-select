@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <base href="/" />
+  </head>
+  <body>
+    <div id="app">
+      <p>dropdown</p>
+      <button data-toggler="fruits" onclick="toggleDropdown(event)">
+        Select
+      </button>
+      <ul data-context="fruits" data-multiple="true" data-dropdown="true">
+        <li
+          onclick="onOptionSelect(event)"
+          data-member="fruits"
+          data-selectall="true"
+          onlick="onOptionSelect()"
+        >
+          All
+        </li>
+        <li
+          data-member="fruits"
+          data-value="apple"
+          onclick="onOptionSelect(event)"
+        >
+          Apple
+        </li>
+        <li
+          data-member="fruits"
+          data-value="banana"
+          onclick="onOptionSelect(event)"
+        >
+          Banana
+        </li>
+        <li
+          data-member="fruits"
+          data-value="mango"
+          onclick="onOptionSelect(event)"
+        >
+          Mango
+        </li>
+      </ul>
+
+      <p>checkbox mode</p>
+
+      <ul
+        data-context="fruits-checkbox"
+        data-multiple="true"
+        data-checkbox="true"
+      >
+        <li
+          onclick="onOptionSelect(event)"
+          data-member="fruits-checkbox"
+          data-selectall="true"
+          checkbox
+          onlick="onOptionSelect()"
+        >
+          <input type="checkbox" /> All
+        </li>
+        <li
+          data-member="fruits-checkbox"
+          data-value="apple"
+          checkbox
+          onclick="onOptionSelect(event)"
+        >
+          <input type="checkbox" /> Apple
+        </li>
+        <li
+          data-member="fruits-checkbox"
+          data-value="banana"
+          checkbox
+          onclick="onOptionSelect(event)"
+        >
+          <input type="checkbox" /> Banana
+        </li>
+        <li
+          data-member="fruits-checkbox"
+          data-value="mango"
+          checkbox
+          onclick="onOptionSelect(event)"
+        >
+          <input type="checkbox" /> Mango
+        </li>
+      </ul>
+
+      <button onclick="alert(JSON.stringify(getSelected()))">submit</button>
+    </div>
+  </body>
+  <script defer src="select.js" type="application/javascript"></script>
+</html>

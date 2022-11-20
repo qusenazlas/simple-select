@@ -1,0 +1,17 @@
+html,
+body {
+  background: #e9e9e9;
+}
+
+[data-dropdown="true"] {
+  display: none;
+  flex-direction: column;
+}
+
+[data-selected="true"]:not([checkbox]) {
+  background-color: green;
+}
+
+[checkbox] input {
+  pointer-events: none;
+}
