@@ -105,5 +105,10 @@ function onOptionSelect(event) {
 }
 
 function getSelected() {
-  return selected;
+  const keys = Object.keys(selected);
+
+  const convertedData = keys.map(function (key) {
+    return { [key]: Array.from(selected[key]) };
+  });
+  return convertedData;
 }
