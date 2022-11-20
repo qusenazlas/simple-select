@@ -3,32 +3,36 @@
 ## How to use
 
 - 1. Download select.js and import to your html file
-     ```<script defer src="select.js" type="application/javascript"></script>
-
+     ```
+        <script defer src="select.js" type="application/javascript"></script>
      ```
 - 2. Copy and paste default css
-     ```
-     [data-dropdown="true"] {
-        display: none;
-        flex-direction: column;
-     }
-     ```
 
-  [data-selected="true"]:not([checkbox]) {
-  background-color: green;
-  }
-
-  [checkbox] input {
-  pointer-events: none;
+  ```
+  [data-dropdown="true"] {
+      display: none;
+      flex-direction: column;
   }
 
   ```
+
+  ```
+  [data-selected="true"]:not([checkbox]) {
+      background-color: green;
+  }
+  ```
+
+  ```
+      [checkbox] input {
+          pointer-events: none;
+      }
 
   ```
 
 - 3. Example for html
 
-  ```
+```
+
       <p>dropdown</p>
     <button data-toggler="fruits" onclick="toggleDropdown(event)">
       Select
@@ -108,8 +112,9 @@
     </ul>
 
     <button onclick="alert(JSON.stringify(getSelected()))">submit</button>
+
   </div>
-  ```
+```
 
 ## Attributes and functions
 
