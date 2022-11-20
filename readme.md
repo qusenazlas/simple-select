@@ -1,5 +1,7 @@
 # Simple Select
 
+# [Live Demo](https://simple-select-ebon.vercel.app/)
+ 
 ## How to use
 
 - 1. Download select.js and import to your html file
@@ -117,8 +119,7 @@
 ```
 
 ## Attributes and functions
-
-** data-checkbox and data-dropdown please select on of them don't use together. **
+**data-checkbox and data-dropdown please select on of them don't use together.**
 
 | attributes     | value   | use for                                                                             |
 | -------------- | ------- | ----------------------------------------------------------------------------------- |
