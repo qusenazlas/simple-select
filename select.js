@@ -1,4 +1,4 @@
-const selected = {};
+let selected = {};
 
 function toggleDropdown(event) {
   const context = event.target.dataset.toggler;
