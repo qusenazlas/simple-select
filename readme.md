@@ -124,12 +124,13 @@
     | ------------- |:-------------:|:-------------------------------------------------------:|
     | data-toggler  | string        | to define which element is toggle dropdown button       |
     | data-context  | string        | to define a group of data                               |
-    | data-dropdown | true | false  | to define which element is a dropdown                   |
+    | data-dropdown | boolean       | to define which element is a dropdown                   |
     | data-member   | string        | to define a option is a member in a group               |
     | data-value    | string        | to define a option value                                |
-    | data-checkbox | true | false  | true to use checkbox mode                               |
-    | checkbox      | true | false  | to define a option has checkbox inside                  |
-    | data-selectall| true | false  | to define select all option (you don't need to put data-value along with this attr)|
+    | data-checkbox | boolean       | true to use checkbox mode                               |
+    | checkbox      | boolean       | to define a option has checkbox inside                  |
+    | data-selectall| boolean       | to define select all option (you don't need to          |
+    |               |               | put data-value along with this attr)                    |
 
     | functions     | arguments     | use for                                                 |
     | ------------- |:-------------:|:-------------------------------------------------------:|
