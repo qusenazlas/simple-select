@@ -89,6 +89,56 @@
           </li>
         </ul>
 
+        <p>checkbox dropdown</p>
+        <button
+          data-toggler="fruits-checkbox-dropdown"
+          onclick="toggleDropdown(event)"
+        >
+          Select
+        </button>
+        <ul
+          data-context="fruits-checkbox-dropdown"
+          data-multiple="true"
+          data-dropdown="true"
+          data-checkbox="true"
+        >
+          <li
+            onclick="onOptionSelect(event)"
+            data-member="fruits-checkbox-dropdown"
+            data-selectall="true"
+            checkbox
+            onlick="onOptionSelect()"
+          >
+            <input type="checkbox" /> All
+          </li>
+          <li
+            data-member="fruits-checkbox-dropdown"
+            data-value="apple"
+            checkbox
+            onclick="onOptionSelect(event)"
+          >
+            <input type="checkbox" /> Apple
+          </li>
+          <li
+            data-member="fruits-checkbox-dropdown"
+            data-value="banana"
+            checkbox
+            onclick="onOptionSelect(event)"
+          >
+            <input type="checkbox" /> Banana
+          </li>
+          <li
+            data-member="fruits-checkbox-dropdown"
+            checkbox
+            data-value="mango"
+            onclick="onOptionSelect(event)"
+          >
+            <input type="checkbox" /> Mango
+          </li>
+        </ul>
+
+        <br />
+
         <button onclick="alert(JSON.stringify(getSelected()))">submit</button>
       </div>
     </div>
