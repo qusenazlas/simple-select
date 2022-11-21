@@ -119,7 +119,7 @@
 ```
 
 ## Attributes and functions
-**data-checkbox and data-dropdown please select on of them don't use together.**
+**data-checkbox and data-dropdown please select one of them don't use together.**
 
 | attributes     | value   | use for                                                                             |
 | -------------- | ------- | ----------------------------------------------------------------------------------- |
