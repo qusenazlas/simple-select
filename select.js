@@ -88,7 +88,7 @@ function onOptionSelect(event) {
   } else {
     if (selected[context]) {
       addOrRemove(selected[context], value, element, isCheckboxMode);
-      shouldUnCheckSelectAll(context, element);
+      // shouldUnCheckSelectAll(context, element);
     } else {
       selected[context] = new Set().add(value);
       isCheckboxMode && changeCheckbox(element.children[0], true);
