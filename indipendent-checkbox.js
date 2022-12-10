@@ -14,21 +14,22 @@ function isObjectEmpty(object) {
   return object === undefined;
 }
 
-const toggleCheck = (elem, changeTo) => {
-  const checked = elem.checked;
-  if (checked === changeTo) return;
-  elem.checked = changeTo;
+const toggleCheck = (elem, checked) => {
+  if (checked) {
+    elem.checked = true;
+  } else {
+    elem.checked = false;
+  }
 };
 
 function onSelectAll(parent, group) {
-  console.log("onSelectAll");
   const allCheckboxes = document.querySelectorAll(
     `[checkbox][data-parent="${parent}"][data-group="${group}"]`
   );
   allCheckboxes.forEach((elem) => {
     const value = elem.dataset.value;
     addDataToObject(parent, group, value);
-    toggleCheck(elem, "true");
+    toggleCheck(elem, true);
   });
 }
 
@@ -46,7 +47,6 @@ function addDataToObject(parent, group, value) {
     Object.assign(selected, { ...selected, [group]: new Set([value]) });
     return;
   }
-
   selected[parent][group].add(value);
 }
 
@@ -56,10 +56,23 @@ function removeData(element, parent, group) {
   selected[parent][group].delete(value);
 }
 
+function uncheckAll(parent, group) {
+  const allCheckboxes = document.querySelectorAll(
+    `[checkbox][data-parent="${parent}"][data-group="${group}"]`
+  );
+
+  allCheckboxes.forEach((element) => {
+    toggleCheck(element, false);
+  });
+
+  selected[parent][group] = new Set([]);
+}
+
 function addData(element, parent, group) {
   const selectAll = element.dataset.selectall;
   const value = element.dataset.value;
   if (selectAll === "true") onSelectAll(parent, group);
+
   addDataToObject(parent, group, value);
 }
 
@@ -68,13 +81,38 @@ function onSelectCheckbox(event) {
   const parent = element.dataset.parent;
   const group = element.dataset.group;
   const value = element.dataset.value;
+  const isSelectAllOption = element.dataset.selectall;
+  const selectAllElement = document.querySelector(
+    `[data-parent="${parent}"][data-group="${group}"][data-selectall="true"]`
+  );
+  const selectAllValue = selectAllElement.dataset.value;
 
   if (!selected?.[parent]?.[group].has(value)) {
-    toggleCheck(element, "true");
+    toggleCheck(element, true);
     addData(element, parent, group);
-  } else {
-    removeData(element, parent, group);
+    addDataToObject(parent, group, selectAllValue);
+    toggleCheck(selectAllElement, true);
+    return;
   }
-  console.log(parent, group);
-  console.log({ selected });
+
+  if (isSelectAllOption === "true") {
+    uncheckAll(parent, group);
+    return;
+  }
+
+  removeData(element, parent, group);
+}
+
+function getSelectedOptions() {
+  const keys = Object.keys(selected);
+  const newObject = {};
+  keys.forEach((key) => {
+    const childKeys = Object.keys(selected[key]);
+    Object.assign(newObject, { [key]: {} });
+    childKeys.forEach((childKey) => {
+      newObject[key][childKey] = Array.from(selected[key][childKey]);
+    });
+  });
+
+  console.log({ newObject });
 }
